@@ -2844,7 +2844,7 @@ var CloudFlare = PromiseObject.create({
 		$deferred.resolve(this._request({
 			query: {
 				auto_pagination: Joi.boolean(),
-				mode: Joi.string().valid('block', 'challenge', 'whitelist'),
+				mode: Joi.string().valid('block', 'challenge', 'js_challenge', 'whitelist'),
 				configuration_target: Joi.string().valid('ip', 'ip_range', 'country'),
 				configuration_value: Joi.string(),
 				order: Joi.string().valid('configuration_target', 'configuration_value', 'mode'),
@@ -2868,7 +2868,7 @@ var CloudFlare = PromiseObject.create({
     userFirewallAccessRuleNew: function ($deferred, body, raw) {
             $deferred.resolve(this._request({
                     body: Joi.object({
-                            mode: Joi.string().valid('block', 'challenge', 'whitelist').required(),
+                            mode: Joi.string().valid('block', 'challenge', 'js_challenge', 'whitelist').required(),
                             configuration: Joi.object({
                                     target: Joi.string().valid('ip', 'ip_range', 'country').required(),
                                     value: Joi.string().required()
